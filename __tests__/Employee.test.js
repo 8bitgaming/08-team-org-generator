@@ -1,16 +1,12 @@
+const Employee = require('../lib/__mocks__/Employee.js');
 
-// const Potion = require('../lib/Potion.js');
+jest.mock('../lib/Employee.js');
 
-// jest.mock('../lib/Potion.js');
+test('creates an enemy object', () => {
+  const employee = new Employee('Frank', 'Manager');
 
-// test('creates an enemy object', () => {
-//   const enemy = new Enemy('goblin', 'sword');
-
-//   expect(enemy.name).toBe('goblin');
-//   expect(enemy.weapon).toBe('sword');
-//   expect(enemy.health).toEqual(expect.any(Number));
-//   expect(enemy.strength).toEqual(expect.any(Number));
-//   expect(enemy.agility).toEqual(expect.any(Number));
-//   expect(enemy.potion).toEqual(expect.any(Object));
-// });
+  expect(employee.name).toBe('Frank');
+  expect(employee.role).toBe('Manager');
+  expect(employee.email).toBe('Frank@fakeemail.com');
+});
 
