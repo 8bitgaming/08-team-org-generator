@@ -4,6 +4,7 @@
 
 ## Description
 This node application uses prompts to allow entry of different employees - a manager, engineers and interns, then creates a simple HTML index file to show the org chart.
+Link to demo/walkthrough video: https://drive.google.com/file/d/1PsPzegDzF6Ic6SLyxa5KzG0pmGpD-cn2/view?usp=sharing
 
 ## Table of Contents
 * [Installation instructions ](#Installation-instructions)
