@@ -4,7 +4,9 @@ const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const templateBuilder = require('./src/templateBuilder')
 const fs = require('fs');
+const readline = require('readline')
 let employees = []
+const regExEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/
 
 //Ask questions for manager, then provide looping list of questions for other employee types
 const createManager = async () => {
@@ -51,10 +53,10 @@ const createManager = async () => {
         name: 'email',
         message: 'Please enter the manager\'s email:',
         validate: emailInput => {
-          if (emailInput) {
+          if (emailInput && regExEmail.test(emailInput)) {
               return true;
           } else {
-              console.log('Please enter an email!');
+              console.log('---->Please enter a valid email!');
               return false;
           }
       }
@@ -136,10 +138,10 @@ const createManager = async () => {
       name: 'email',
       message: 'Please enter the engineer\'s email:',
       validate: emailInput => {
-        if (emailInput) {
+        if (emailInput && regExEmail.test(emailInput)) {
             return true;
         } else {
-            console.log('Please enter an email!');
+            console.log('---->Please enter a valid email!');
             return false;
         }
     }
@@ -202,10 +204,10 @@ const createIntern = async () => {
     name: 'email',
     message: 'Please enter the intern\'s email:',
     validate: emailInput => {
-      if (emailInput) {
+      if (emailInput && regExEmail.test(emailInput)) {
           return true;
       } else {
-          console.log('Please enter an email!');
+          console.log('---->Please enter a valid email!');
           return false;
       }
   }
