@@ -6,6 +6,7 @@ const templateBuilder = require('./src/templateBuilder')
 const fs = require('fs');
 let employees = []
 
+//Ask questions for manager, then provide looping list of questions for other employee types
 const createManager = async () => {
   console.log(
   `
@@ -234,19 +235,16 @@ const createIntern = async () => {
 })
 }
 
+//callback to generate the html markup
 const createMarkUp = () => {
-  console.log('placeholder for creating mockup')
   writeToFile(templateBuilder(employees))
 }
 
 
 
-  //check for Dist folder and create one using fs if needed
+//create the file
 writeToFile = fileContent => {
   return new Promise((resolve, reject) => {
-  // if (!fs.existsSync(dir)){
-  //   fs.mkdirSync(dir)
-  // }
     fs.writeFile('./dist/index.html', fileContent, err => {
       if (err) {
         reject(err);
@@ -262,4 +260,3 @@ writeToFile = fileContent => {
 
   createManager()
    .then (createEmployee)
-  // module.exports = Application;
